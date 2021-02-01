@@ -38,4 +38,16 @@ RSpec.describe ChatsController do
       it{is_expected.to have_http_status(:found)}
     end
   end
+
+  describe 'GET search' do
+    context 'when search for message body' do
+      it 'should return matches' do
+        body = 'this is my body'
+        application.chats.each {|c| c.messages << Message.create(body: body)}
+        Message.reindex
+        get :search, params: {application_token: application.token, number: chat.chat_number, q: body}
+        expect(JSON.parse(response.body).empty?).not_to be_truthy
+      end
+    end
+  end
 end
