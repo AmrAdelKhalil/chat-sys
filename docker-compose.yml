@@ -1,0 +1,33 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7.26
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+  redis:
+    image: redis
+  elasticsearch:
+    image: elasticsearch:6.4.0
+    restart: always
+  chat-system:
+    build:
+      dockerfile: ./Dockerfile
+      context: ./chat-system
+    command: sh ./start.sh
+    ports:
+      - 3000:3000
+    restart: always
+    depends_on:
+      - elasticsearch
+      - mysql
+  api-gateway:
+    build:
+      dockerfile: ./gateway/Dockerfile
+      context: ./api_gateway
+    image: my-gateway
+    container_name: my-gateway
+    env_file: ./api_gateway/.env
+    ports:
+      - 3001:80
+    restart: always
