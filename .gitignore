@@ -1,0 +1,23 @@
+# Rails gitignore
+/chat_system_task/.bundle
+
+/chat_system_task/log/*
+/chat_system_task/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+/chat_system_task/storage/*
+!/storage/.keep
+
+.byebug_history
+
+/config/master.key
+
+.idea/
+/chat_system_task/config/database.yml
+
+
+# Go gitignore
+.env
+/.idea
+
