@@ -9,4 +9,4 @@ You are free to check the code, To make it a little bit clear, This repo will gi
 * Handling race condition
 * Playing with background jobs
 
-Feel free to read the [Wiki](https://github.com/AmrAdelKhalil/intsa-task/wiki) of this repo for more explanation.
+Feel free to read the [Wiki](https://github.com/AmrAdelKhalil/chat-sys/wiki) of this repo for more explanation.
