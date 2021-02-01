@@ -1,0 +1,16 @@
+{
+  "router": {
+    "port": "9005",
+    "settings": {
+      "timeout": 500
+    },
+    "Services": [
+      {
+        "ServicePrefix": "applications",
+        "TargetPath": {
+          "path": "http://chat-system:3000"
+        }
+      }
+    ]
+  }
+}
